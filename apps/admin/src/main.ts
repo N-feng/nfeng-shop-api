@@ -6,11 +6,13 @@ async function bootstrap() {
   const app = await NestFactory.create(AdminModule);
 
   const options = new DocumentBuilder()
-    .setTitle('管理后台API')
-    .setDescription('供后台管理的服务端API')
+    .setTitle('Backend Generator')
+    .setDescription('Documentation API Test')
     .setVersion('1.0')
-    .addBearerAuth()
+    .setBasePath('api/v1')
+    .addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'JWT' })
     .build();
+
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api-docs', app, document, {
     customSiteTitle: 'Backend Generator',

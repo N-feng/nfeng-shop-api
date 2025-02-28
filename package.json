@@ -80,5 +80,8 @@
       "^@app/common(|/.*)$": "<rootDir>/libs/common/src/$1",
       "^@app/db(|/.*)$": "<rootDir>/libs/db/src/$1"
     }
+  },
+  "_moduleAliases": {
+    "@app/common": "libs/common/src"
   }
 }

@@ -1,5 +1,5 @@
-import { CommonModule } from '@app/common';
 import { Module } from '@nestjs/common';
+import { CommonModule } from './common/common.module';
 import { ProjectController } from './project/project.controller';
 import { ProjectService } from './project/project.service';
 
@@ -8,4 +8,4 @@ import { ProjectService } from './project/project.service';
   controllers: [ProjectController],
   providers: [ProjectService],
 })
-export class AdminModule {}
+export class AppModule {}

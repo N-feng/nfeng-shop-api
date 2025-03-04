@@ -1,9 +1,9 @@
 import { NestFactory } from '@nestjs/core';
-import { AdminModule } from './admin.module';
+import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AdminModule);
+  const app = await NestFactory.create(AppModule);
 
   const options = new DocumentBuilder()
     .setTitle('Backend Generator')

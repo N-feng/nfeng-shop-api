@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
-import { CommonService } from './common.service';
-import { DbModule } from '@app/db';
 import { ConfigModule } from '@nestjs/config';
+import { DbModule } from 'src/db/db.module';
 
 @Module({
   imports: [
@@ -10,7 +9,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
     DbModule,
   ],
-  providers: [CommonService],
-  exports: [CommonService],
+  providers: [],
+  exports: [],
 })
 export class CommonModule {}

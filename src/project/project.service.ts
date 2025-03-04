@@ -1,7 +1,7 @@
-import { Project } from '@app/db/schemas/project.schema';
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { Project } from 'src/db/schemas/project.schema';
 
 @Injectable()
 export class ProjectService {

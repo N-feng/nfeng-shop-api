@@ -1,5 +1,4 @@
 import { Global, Module } from '@nestjs/common';
-import { DbService } from './db.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Project, ProjectSchema } from './schemas/project.schema';
 
@@ -22,7 +21,7 @@ const models = MongooseModule.forFeature([
     }),
     models,
   ],
-  providers: [DbService],
-  exports: [DbService, models],
+  providers: [],
+  exports: [models],
 })
 export class DbModule {}

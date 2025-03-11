@@ -1,0 +1,21 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ProjectTypeGraphql {
+  _id: ID!
+}
+
+type Query {
+  getAllGoods: [ProjectTypeGraphql!]!
+  getGoods(id: String!): ProjectTypeGraphql!
+}
+
+type Mutation {
+  updateGoods(project: ProjectInputTypeGraphql!): ProjectTypeGraphql!
+  deleteOneGoods(id: String!): Boolean!
+}
+
+input ProjectInputTypeGraphql {
+  _id: ID!
+}

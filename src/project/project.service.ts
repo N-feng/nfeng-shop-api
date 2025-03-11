@@ -18,7 +18,7 @@ export class ProjectService {
     // .populate('proVariantId', 'id name');
   }
 
-  async findOne(id) {
+  async findOneById(id) {
     const u = await this.projectRepository.findOne(id);
     if (!u) {
       throw new BadRequestException({
@@ -29,7 +29,7 @@ export class ProjectService {
     return u;
   }
 
-  async create(project) {
+  async addOne(project) {
     const { title } = project;
     const u = await this.projectRepository.findOne({ where: { title } });
 
@@ -39,11 +39,11 @@ export class ProjectService {
     return await this.projectRepository.save(project);
   }
 
-  async update(id, project) {
-    return await this.projectRepository.update(id, project);
+  async updateOne(project: Partial<Project>) {
+    return await this.projectRepository.update(project._id, project);
   }
 
-  async delete(id) {
+  async deleteOne(id: string) {
     return await this.projectRepository.delete(id);
   }
 }

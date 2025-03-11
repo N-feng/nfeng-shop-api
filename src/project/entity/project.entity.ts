@@ -17,13 +17,13 @@ export class Project {
   description: string;
 
   @Column()
-  liveSiteUrl: boolean;
+  liveSiteUrl: string;
 
   @Column()
-  githubUrl: boolean;
+  githubUrl: string;
 
   @Column()
-  category: boolean;
+  category: string;
 
   @CreateDateColumn()
   createdAt: Date

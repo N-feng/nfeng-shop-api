@@ -17,7 +17,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: '../schema.gql', //代码先行(既先写实体定义)
+      autoSchemaFile: './schema.gql', //代码先行(既先写实体定义)
     }),
     ProjectModule,
   ]

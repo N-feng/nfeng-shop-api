@@ -15,25 +15,25 @@ export class ProjectResolver {
  
    //查询所有商品
    @Query(() => [ProjectTypeGraphql])
-   async getAllGoods() {
+   async getAllProject() {
      return this.projectService.findAll();
    }
  
    //查询单个商品
    @Query(() => ProjectTypeGraphql)
-   async getGoods(@Args('id') id: string) {
+   async getProject(@Args('id') id: string) {
      return this.projectService.findOneById(id);
    }
  
    //新增一个商品
   //  @Mutation(() => ProjectTypeGraphql)
-  //  async addOneGoods(@Args('project') project: ProjectInsertTypeGraphql) {
+  //  async addOneProject(@Args('project') project: ProjectInsertTypeGraphql) {
   //    return this.projectService.addOne({ ...project });
   //  }
  
    // 更新一个商品信息
    @Mutation(() => ProjectTypeGraphql)
-   async updateGoods(@Args('project') project: ProjectInputTypeGraphql) {
+   async updateProject(@Args('project') project: ProjectInputTypeGraphql) {
      const [err] = await awaitWrap(this.projectService.updateOne(project));
      if (err) {
        return project;
@@ -43,7 +43,7 @@ export class ProjectResolver {
  
    // 删除一个商品信息
    @Mutation(() => Boolean)
-   async deleteOneGoods(@Args('id') id: string) {
+   async deleteOneProject(@Args('id') id: string) {
      const [err] = await awaitWrap(this.projectService.deleteOne(id));
      if (err) {
        return false;

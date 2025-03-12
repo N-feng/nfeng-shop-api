@@ -5,7 +5,7 @@ import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 export class Project {
   @PrimaryGeneratedColumn()
   @ObjectIdColumn()
-  readonly _id: ObjectId;
+  readonly _id: string;
 
   @ObjectIdColumn()
   userId: ObjectId;

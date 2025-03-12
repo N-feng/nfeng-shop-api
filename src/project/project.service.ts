@@ -2,15 +2,17 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Project } from './entity/project.entity';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class ProjectService {
   constructor(
-    @InjectRepository(Project) public projectRepository: Repository<Project>,
+    @InjectModel(Project.name) private projectModel: Model<Project>,
   ) {}
 
   async findAll() {
-    return await this.projectRepository.find();
+    return await this.projectModel.find();
     // .populate('proCategoryId', 'id name')
     // .populate('proSubCategoryId', 'id name')
     // .populate('proBrandId', 'id name')
@@ -19,7 +21,7 @@ export class ProjectService {
   }
 
   async findOneById(id) {
-    const u = await this.projectRepository.findOne(id);
+    const u = await this.projectModel.findOne(id);
     if (!u) {
       throw new BadRequestException({
         code: 400,
@@ -31,19 +33,19 @@ export class ProjectService {
 
   async addOne(project) {
     const { title } = project;
-    const u = await this.projectRepository.findOne({ where: { title } });
+    const u = await this.projectModel.findOne({ where: { title } });
 
     if (u) {
       throw new BadRequestException({ code: 400, msg: '项目已存在~' });
     }
-    return await this.projectRepository.save(project);
+    return await this.projectModel.create(project);
   }
 
   async updateOne(project: Partial<Project>) {
-    return await this.projectRepository.update(project._id, project);
+    return await this.projectModel.findByIdAndUpdate(project._id, project);
   }
 
   async deleteOne(id: string) {
-    return await this.projectRepository.delete(id);
+    return await this.projectModel.findByIdAndDelete(id);
   }
 }

@@ -7,13 +7,13 @@ type ProjectTypeGraphql {
 }
 
 type Query {
-  getAllGoods: [ProjectTypeGraphql!]!
-  getGoods(id: String!): ProjectTypeGraphql!
+  getAllProject: [ProjectTypeGraphql!]!
+  getProject(id: String!): ProjectTypeGraphql!
 }
 
 type Mutation {
-  updateGoods(project: ProjectInputTypeGraphql!): ProjectTypeGraphql!
-  deleteOneGoods(id: String!): Boolean!
+  updateProject(project: ProjectInputTypeGraphql!): ProjectTypeGraphql!
+  deleteOneProject(id: String!): Boolean!
 }
 
 input ProjectInputTypeGraphql {

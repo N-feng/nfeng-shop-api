@@ -4,7 +4,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ProjectModule } from './project/project.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
-import { resolve } from 'path';
+import { join } from 'path';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -18,7 +18,7 @@ import { resolve } from 'path';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: resolve('./src', 'schema.gql'),
+      autoSchemaFile: true,
     }),
     ProjectModule,
   ]

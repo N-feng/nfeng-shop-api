@@ -18,7 +18,9 @@ import { join } from 'path';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
+      // 自动生成schema.graphql文件
       autoSchemaFile: true,
+      context: ({ req }) => ({ req }), // 新增这行,将数据挂载到context上
     }),
     ProjectModule,
   ]

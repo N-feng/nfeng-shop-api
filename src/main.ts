@@ -28,7 +28,7 @@ async function bootstrap() {
     ],
   });
   
-  const PORT = process.env.port ?? 3002;
+  const PORT = process.env.PORT ?? 3002;
   await app.listen(PORT);
   console.log(`http://localhost:${PORT}/api-docs`);
 }

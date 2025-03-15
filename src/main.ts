@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import * as csurf from 'csurf';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
@@ -28,7 +27,7 @@ async function bootstrap() {
       'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css',
     ],
   });
-  app.use(csurf());
+  
   const PORT = process.env.port ?? 3002;
   await app.listen(PORT);
   console.log(`http://localhost:${PORT}/api-docs`);
